@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:peliculas/src/models/movie.dart';
 import 'package:peliculas/src/widgets/casting_cards.dart';
@@ -48,10 +49,13 @@ class _CrearCustomAppBar extends StatelessWidget {
       floating: false,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
-        titlePadding: const EdgeInsets.all(0.0),
-        title: Text(movie.title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white, fontSize: 16.0)),
+        titlePadding: const EdgeInsets.only(bottom: 15),
+        title: FadeIn(
+          delay: Duration(milliseconds: 300),
+          child: Text(movie.title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.white, fontSize: 16.0)),
+        ),
         background: FadeInImage(
           image: NetworkImage(movie.fullBackdropPath),
           placeholder: const AssetImage('assets/img/loading.gif'),
